@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using backendNet.Models;
 using backendNet.Services;
 
-namespace backendNet.PersonController{
+namespace backendNet.Controller
+{
 
   [ApiController]
   [Route("api/persons")]

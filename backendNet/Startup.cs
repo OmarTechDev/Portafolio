@@ -23,12 +23,14 @@ namespace backendNet
     {
       services.AddSwaggerGen(c =>
       {
-          c.SwaggerDoc("v1", new OpenApiInfo { Title = "MongoDB CRUD API", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "MongoDB CRUD API", Version = "v1" });
       });
 
       services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
       services.AddScoped<IPersonService,PersonService>();
       services.AddScoped<IPersonRepository,PersonRepository>();
+      services.AddScoped<IUserService,UserService>();
+      services.AddScoped<IUserRepository,UserRepository>();
       services.AddControllers();
     }
 

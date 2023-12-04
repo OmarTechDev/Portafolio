@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +9,11 @@ using backendNet.Models;
 
 namespace backendNet.Repository
 {
-  public class PersonRepository : IPersonRepository
+  public class UserRepository : IUserRepository
   {
-    private readonly IMongoCollection<Person> _collection;
+    private readonly IMongoCollection<User> _collection;
     private readonly DbConfiguration _settings;
-    public PersonRepository(IConfiguration settings)
+    public UserRepository(IConfiguration settings)
     {
       var mongoDbSettingsSection = settings.GetSection("MongoDbConnection");
       var mongoDbSettings = (mongoDbSettingsSection?.Get<DbConfiguration>()) ??
@@ -22,29 +22,29 @@ namespace backendNet.Repository
       _settings = mongoDbSettings;
       var client = new MongoClient(_settings.ConnectionString);
       var database = client.GetDatabase(_settings.DatabaseName);
-      _collection = database.GetCollection<Person>(_settings.CollectionPersons);
+      _collection = database.GetCollection<User>(_settings.CollectionUsers);
     }
 
-    public Task<List<Person>> GetAllAsync()
+    public Task<List<User>> GetAllAsync()
     {
-      return _collection.Find(c => true).ToListAsync();
+      return _collection.Find(userFilter=> true).ToListAsync();
     }
-    public Task<Person> GetByIdAsync(string id)
+    public Task<User> GetByIdAsync(string id)
     {
-      return _collection.Find(c => c.Id == id).FirstOrDefaultAsync();
+      return _collection.Find(userFilter=> userFilter.Id == id).FirstOrDefaultAsync();
     }
-    public async Task<Person> CreateAsync(Person person)
+    public async Task<User> CreateAsync(User user)
     {
-      await _collection.InsertOneAsync(person).ConfigureAwait(false);
-      return person;
+      await _collection.InsertOneAsync(user).ConfigureAwait(false);
+      return user;
     }
-    public Task UpdateAsync(string id, Person person)
+    public Task UpdateAsync(string id, User user)
     {
-      return _collection.ReplaceOneAsync(c => c.Id == id, person);
+      return _collection.ReplaceOneAsync(userFilter => userFilter.Id == id, user);
     }
     public Task DeleteAsync(string id)
     {
-      return _collection.DeleteOneAsync(c => c.Id == id);
+      return _collection.DeleteOneAsync(userFilter => userFilter.Id == id);
     }
   }
 }
