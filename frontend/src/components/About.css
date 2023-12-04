@@ -1,0 +1,7 @@
+.questionContainer{
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    min-height: 90vh;
+}
