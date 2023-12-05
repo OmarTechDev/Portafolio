@@ -8,7 +8,7 @@ namespace backendNet.Models
   {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public required string Id { get; set; }
+    public string? Id { get; set; }
 
     [BsonElement("username")]
     public required string Username { get; set; }
@@ -18,6 +18,16 @@ namespace backendNet.Models
 
     [BsonElement("passwordHash")]
     public required string PasswordHash { get; set; }
+
+    public void SetPassword(string password)
+    {
+      PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+    }
+
+    public bool VerifyPassword(string password)
+    {
+      return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
+    }
 
   }
 }

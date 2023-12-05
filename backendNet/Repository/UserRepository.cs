@@ -29,6 +29,10 @@ namespace backendNet.Repository
     {
       return _collection.Find(userFilter=> true).ToListAsync();
     }
+    public Task<User> GetByNameAsync(string name)
+    {
+      return _collection.Find(userFilter=> userFilter.Name == name).FirstOrDefaultAsync();
+    }
     public Task<User> GetByIdAsync(string id)
     {
       return _collection.Find(userFilter=> userFilter.Id == id).FirstOrDefaultAsync();

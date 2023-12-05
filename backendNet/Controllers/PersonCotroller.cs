@@ -19,14 +19,12 @@ namespace backendNet.Controller
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-      Console.WriteLine("Here1");
       return Ok(await _personService.GetAllAsync().ConfigureAwait(false));
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(string id)
     {
-      Console.WriteLine("Here12");
       var person = await _personService.GetByIdAsync(id).ConfigureAwait(false);
       if (person == null)
       {
@@ -40,7 +38,7 @@ namespace backendNet.Controller
     {
         if (!ModelState.IsValid)
         {
-            return BadRequest();
+          return BadRequest();
         }
         await _personService.CreateAsync(person).ConfigureAwait(false);
         return Ok(person.Id);
@@ -52,7 +50,7 @@ namespace backendNet.Controller
       var person = await _personService.GetByIdAsync(id).ConfigureAwait(false);
       if (person == null)
       {
-          return NotFound();
+        return NotFound();
       }
       await _personService.UpdateAsync(id, personIn).ConfigureAwait(false);
       return NoContent();
@@ -64,7 +62,7 @@ namespace backendNet.Controller
         var person = await _personService.GetByIdAsync(id).ConfigureAwait(false);
         if (person == null)
         {
-            return NotFound();
+          return NotFound();
         }
         await _personService.DeleteAsync(person.Id).ConfigureAwait(false);
         return NoContent();

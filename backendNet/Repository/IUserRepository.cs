@@ -7,6 +7,7 @@ namespace backendNet.Repository
   public interface IUserRepository
   {
     Task<List<User>> GetAllAsync();
+    Task<User> GetByNameAsync(string name);
     Task<User> GetByIdAsync(string id);
     Task<User> CreateAsync(User user);
     Task UpdateAsync(string id, User user);
