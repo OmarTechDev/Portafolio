@@ -11,7 +11,7 @@ function ErrorFallback({ error, componentStack, resetErrorBoundary }: any) {
   return (
     <div className='ERROR'>
       <h1>F5 or manually REFRESH with the button below</h1>
-      <h2>Something goes wrong <u>Escritura</u></h2>
+      <h2>Something goes wrong <u>Writting</u></h2>
       <p>{error.toString()}</p>
       <p>Component stack:</p>
       <pre>{componentStack}</pre>
