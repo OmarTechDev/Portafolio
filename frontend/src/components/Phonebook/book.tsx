@@ -1,28 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import doThings from './persons'
-import {BookProps} from './kinds';
+import {Person, BookProps} from './kinds';
 import switchAddEdit from './addEditPhone'
 
-import '../Phone.css'
+import './phonebook.css'
 
-const Book = ( props: BookProps) =>
-{
-  const { note, filter ,updateName, Name } = props
-  const [val, setVal] = useState(false)
-
-  const handleChange = () => {setVal(false)}
-
-  const handleDel = (event: React.MouseEvent) => {
-    event.stopPropagation()
-    setVal(true)
-  }
+const Book = (props: BookProps) => {
+  const { note, filter ,updateName, Name, setErrorMessage } = props
 
   useEffect(() => {
     switchAddEdit('add')
   }, [])
 
   const showhide = (event: React.MouseEvent) => {
-
     event.stopPropagation()
     var editPhone = document.getElementById('Edit_phone')
     if (editPhone && editPhone.style.display === 'block') {
@@ -34,33 +24,35 @@ const Book = ( props: BookProps) =>
     }
   }
 
-  const remove = (id:string) =>
-  {
-    if (window.confirm(`Delete ${note.name}?`))
-    {
+  const remove = async (id:string) => {
+    if (window.confirm(`Delete ${note.name}?`) && id !== "") {
       doThings
         .del(id)
-        .then(() => (
-          updateName(Name.filter(n => n.id !== id))
-          )
-        )
-    }
-    else{
-      updateName(Name)
-      handleChange()
+        .then(response => {
+          console.log('TOP')
+          updateName(Name.filter((personActualList:Person) => personActualList.id !== response.id))
+          setErrorMessage('Person Deleted')
+          setTimeout(() => {
+            setErrorMessage("")
+          }, 2000)
+        })
+        .catch(error => {
+          setErrorMessage(error)
+          setTimeout(() => {
+            setErrorMessage('')
+          }, 2000)
+        })
     }
   }
 
-  if( note.name.toLowerCase().includes(filter))
-  {
-
+  if( note.name.toLowerCase().includes(filter)) {
     return (
       <>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
             <h2 className="accordion-header" id={`heading-${note.id}`}>
               <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse-${note.id}`} aria-expanded="true" aria-controls={`collapse-${note.id}`}>
-                <span className="btn btn-secondary" onClick={handleDel}>delete</span>&#160;
+                <span className="btn btn-secondary" onClick={()=> remove(note.id ?? '')}>delete</span>&#160;
                 <span className="btn btn-secondary" onClick={showhide}>edit</span>
                 <b><h5>&#160;&#160;&#160;{note.name}</h5></b>
               </button>
@@ -73,9 +65,7 @@ const Book = ( props: BookProps) =>
             </div>
           </div>
         </div>
-        {val && remove(note.id ?? '')}
       </>
-
     )
   }
 }

@@ -32,6 +32,15 @@ namespace backendNet
       services.AddScoped<IUserService,UserService>();
       services.AddScoped<IUserRepository,UserRepository>();
       services.AddControllers();
+      services.AddCors(options =>
+      {
+          options.AddDefaultPolicy(builder =>
+          {
+              builder.WithOrigins("http://localhost:5173")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+          });
+      });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -39,13 +48,15 @@ namespace backendNet
       app.UseSwagger();
       app.UseSwaggerUI(c =>
       {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MongoDB CRUD API V1");
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "MongoDB CRUD API PORTAFOLIO V1");
       });
 
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
       }
+
+      app.UseCors();
 
       app.UseHttpsRedirection();
 

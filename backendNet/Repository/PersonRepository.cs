@@ -9,6 +9,13 @@ using backendNet.Models;
 
 namespace backendNet.Repository
 {
+  public class NewPerson
+  {
+    public required string Id { get; set; }
+    public required string Name { get; set; }
+    public required string Number { get; set; }
+    public string? Email { get; set; } // También aquí
+  }
   public class PersonRepository : IPersonRepository
   {
     private readonly IMongoCollection<Person> _collection;
@@ -40,7 +47,14 @@ namespace backendNet.Repository
     }
     public Task UpdateAsync(string id, Person person)
     {
-      return _collection.ReplaceOneAsync(c => c.Id == id, person);
+      var newPerson = new Person
+      {
+        Id = id,
+        Name = person.Name,
+        Number = person.Number,
+        Email = person.Email
+      };
+      return _collection.ReplaceOneAsync(c => c.Id == id, newPerson);
     }
     public Task DeleteAsync(string id)
     {

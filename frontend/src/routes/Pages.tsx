@@ -1,14 +1,16 @@
 import './PageS.css'
+//import { useState } from 'react';
 
 import Maintop from '../components/NavBar.tsx';
 import Body from '../components/Home/Body.tsx';
 import AboutBody from '../components/About.tsx';
 import Buttons from '../components/Calculator/buttonsCalculator.tsx';
 import logo from '../assets/logo.svg';
+
 // import Log from './components_multi/Login'
 // import Sign_in from './components_multi/Sign_in'
 // import Trail from './components_multi/Pass'
-// import Phone_App from './Phonebook/Phonebook_App'
+import Phone_App from '../components/Phonebook/PhonebookApp'
 
 
 function HomePage() {
@@ -99,15 +101,15 @@ function Calculator(){
 //   )
 // }
 
-// function PhoneB(){
-//   return(
-//     <div>
-//       <Maintop/>
-//       <div className="Phone_Container">
-//         <Phone_App/>
-//       </div>
-//     </div>
-//   )
-// }
+function PhoneB(){
+  return(
+    <div>
+      <Maintop/>
+      <div className="Phone_Container">
+        <Phone_App/>
+      </div>
+    </div>
+  )
+}
 
-export { HomePage, AboutPage, Calculator}
+export { HomePage, AboutPage, Calculator, PhoneB}

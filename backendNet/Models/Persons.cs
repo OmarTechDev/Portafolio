@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.ComponentModel.DataAnnotations;
 
 namespace backendNet.Models
 {
@@ -7,7 +8,7 @@ namespace backendNet.Models
   {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public required string Id { get; set; }
+    public string? Id { get; set; }
 
     [BsonElement("name")]
     public required string Name { get; set; }
@@ -16,6 +17,8 @@ namespace backendNet.Models
     public string? Email { get; set; }
 
     [BsonElement("number")]
-    public int Number { get; set; }
+    [Required(ErrorMessage = "Phone number is required")]
+    [RegularExpression(@"\d{2,3}-.*", ErrorMessage = "Not a valid phone number")]
+    public required string Number { get; set; }
   }
 }

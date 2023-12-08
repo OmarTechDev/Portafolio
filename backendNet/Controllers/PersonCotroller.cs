@@ -4,7 +4,6 @@ using backendNet.Services;
 
 namespace backendNet.Controller
 {
-
   [ApiController]
   [Route("api/persons")]
   public class PersonController : ControllerBase
@@ -41,7 +40,7 @@ namespace backendNet.Controller
           return BadRequest();
         }
         await _personService.CreateAsync(person).ConfigureAwait(false);
-        return Ok(person.Id);
+        return Ok(person);
     }
 
     [HttpPut("{id:length(24)}")]
@@ -53,19 +52,19 @@ namespace backendNet.Controller
         return NotFound();
       }
       await _personService.UpdateAsync(id, personIn).ConfigureAwait(false);
-      return NoContent();
+      return Ok(personIn);
     }
 
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {
-        var person = await _personService.GetByIdAsync(id).ConfigureAwait(false);
-        if (person == null)
-        {
-          return NotFound();
-        }
-        await _personService.DeleteAsync(person.Id).ConfigureAwait(false);
-        return NoContent();
+      var person = await _personService.GetByIdAsync(id).ConfigureAwait(false);
+      if (person == null || person.Id == null)
+      {
+        return NotFound();
+      }
+      await _personService.DeleteAsync(person.Id).ConfigureAwait(false);
+      return Ok(person);
     }
   }
 }

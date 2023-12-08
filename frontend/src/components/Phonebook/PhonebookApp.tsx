@@ -4,27 +4,27 @@ import Book from './book'
 import Addinfo from './add'
 import Edition from './edit'
 import switchAddEdit from './addEditPhone'
-import { FilterProps, SelectedStyle, Person, selectStyle } from './kinds';
+import { FilterProps, SelectedStyle, Person, selectStyle, NotebookProps } from './kinds';
 
 import './phonebook.css'
 
 const Filter: React.FC<FilterProps>  = ({ filter,handleFilter }) =>
 (
-  <div className="mb-3" id="Filter">
-      <label htmlFor="filterName" className="col-sm-2 col-form-label">
-        <b>Filter shown with:</b>
-      </label>
-      <div className="col-sm-3" id="filt_bar">
-        <input
-          type="text"
-          className="form-control"
-          id="filterName"
-          placeholder="Search"
-          value={filter || ''}
-          onChange={(e) => handleFilter(e.target.value)}
-        />
-      </div>
+  <div id="Filter">
+    <label htmlFor="filterName">
+      <b>Search Bar:</b>
+    </label>
+    <div id="filt_bar">
+      <input
+        type="text"
+        className="form-control"
+        id="filterName"
+        placeholder="Search"
+        value={filter}
+        onChange={(e) => handleFilter(e.target.value)}
+      />
     </div>
+  </div>
 )
 
 const Notification = ({ message, selected }: { message: string; selected: SelectedStyle }) => {
@@ -39,12 +39,35 @@ const Notification = ({ message, selected }: { message: string; selected: Select
   )
 }
 
+const Notebook: React.FC<NotebookProps> = ({Name, filter, setData, updateName, setErrorMessage}) => {
+  const filteredAndSortedContacts = Name
+    .filter(note => note.name)
+    .sort((a, b) => a.name.localeCompare(b.name))
+
+  let list = filteredAndSortedContacts.filter(element => element.name.toLowerCase().includes(filter))
+  if (list.length === 0) {
+    return <h2>No Coincidences</h2>;
+  }
+
+  return filteredAndSortedContacts.map(note => (
+    <Book
+      onData={async (childData) => setData(childData.name)} // Get the data of which element is going to be edited
+      key={note.id}
+      note={note}
+      filter={filter}
+      updateName={updateName}
+      Name={Name}
+      setErrorMessage={setErrorMessage}
+    />
+  ));
+}
+
 const Phone_App: React.FC = () => {
 
   const [Name, setName] = useState<Person[]>([])
   const [filter, setFilter] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
-  const [selected, setSelected] = useState(selectStyle[0])
+  const [selected] = useState(selectStyle[0])
 
   const [data, setData] = useState('')
 
@@ -55,33 +78,26 @@ const Phone_App: React.FC = () => {
       })
   }, [])
 
-  const handleData = async (childData: any) => {
-    setData(childData.name)
-  }
-
-  const handleChange = (setValue:any) => async (event:any) => setValue(event.target.value)
-
-  const updateName = async (newValue:any) =>{
-    await new Promise((resolve) =>{ setTimeout(resolve, 1000)})
-    setName(newValue)
+  const updateName = async (newValue: Person[]): Promise<void>  =>{
+    await setName(newValue)
     switchAddEdit('add')
   }
 
   return (
-    <div className="Phonebook">
-      <br/><h1><u>Phonebook</u></h1><br/>
-      <Notification message={errorMessage} selected={selected}/>
-      <Filter filter={filter} handleFilter={handleChange(setFilter)}/><br/>
+    <div className="Phonebook"><br/>
+      <div className="header-container">
+        <h1 id="TitlePhonebook"><u>Phonebook</u></h1>
+        <Notification message={errorMessage} selected={selected} />
+      </div><br/>
+      <Filter filter={filter} handleFilter={(value) => setFilter(value)}/><br/>
       <Addinfo updateName={updateName} setErrorMessage={setErrorMessage} Name={Name}/>
-      <h3 id="title_h3_phonebook">Your contacts<br/></h3>
+      <h3 id="title_h3_phonebook"><u>Your contacts</u><br/></h3>
       <div className="book">
         <div className="col" id="ul">
-          {Name.sort((a, b) => a.name.localeCompare(b.name)).map(note =>
-            <Book onData={handleData} key={note.id} note={note} filter={filter} updateName={updateName} Name={Name} />
-          )}
+          <Notebook Name={Name} filter={filter} setData={setData} updateName={updateName} setErrorMessage={setErrorMessage}/>
         </div>
       </div>
-      <Edition data={data} updateName={updateName} Name={Name}/>
+      <Edition data={data} updateName={updateName} setErrorMessage={setErrorMessage} Name={Name}/>
     </div>
   )
 }

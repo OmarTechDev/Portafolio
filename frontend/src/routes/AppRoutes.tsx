@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { HomePage, AboutPage, Calculator } from './Pages'
+import { HomePage, AboutPage, Calculator, PhoneB } from './Pages'
 
 function AppRoutes() {
   return (
@@ -9,8 +9,8 @@ function AppRoutes() {
         <Route path="/about" element={<AboutPage /> }></Route>
         <Route path="/calculator" element={<Calculator /> }></Route>
         {/* <Route path="/multi" element={<Multi /> }></Route>
-        <Route path="/multi/pass" element={<Pass /> }></Route>
-        <Route path="/multi/pass/phonebook" element={<PhoneB /> }></Route> */}
+        <Route path="/multi/pass" element={<Pass /> }></Route> */}
+        <Route path="/multi/pass/phonebook" element={<PhoneB /> }></Route>
       </Routes>
     </Router>
   )
