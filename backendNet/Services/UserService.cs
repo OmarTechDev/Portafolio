@@ -19,6 +19,11 @@ namespace backendNet.Services
       return _userRepository.GetAllAsync();
     }
 
+    public Task<User> GetByNameAsync(string name)
+    {
+      return _userRepository.GetByNameAsync(name);
+    }
+
     public Task<User> GetByIdAsync(string id)
     {
       return _userRepository.GetByIdAsync(id);
