@@ -10,9 +10,6 @@ import Trail from '../components/Login/pass.tsx';
 
 import Logo from '../assets/logo.svg?react';
 
-// import Log from './components_multi/Login'
-// import Sign_in from './components_multi/Sign_in'
-// import Trail from './components_multi/Pass'
 import Phone_App from '../components/Phonebook/PhonebookApp'
 
 

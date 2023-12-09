@@ -44,7 +44,8 @@
 }
 
 .navbar-nav{
-    padding: 10vw;
+    margin-top: 1%;
+    padding: 15vw;
     display: flex;
     flex-direction:row;
     width: 60vw;
@@ -80,11 +81,7 @@
 
 .navbar .dropdown:hover ul {
     display: block;
-    background-color: #ef1092 !important;
+    background-color: #00ffff !important;
     padding: 10px;
     z-index: 9000 !important;
-}
-
-.navbar .dropdown li {
-    margin: 0;
 }
