@@ -103,6 +103,9 @@
 }
 
 .M_Center{
+  position: absolute;
+  left: 0;
+  top: 10vh;
   width: 100vw;
   height: 90vh;
   background-color: #025159;

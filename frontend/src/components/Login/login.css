@@ -1,0 +1,27 @@
+.label_p{
+  font-weight: bold;
+  color:rgb(56, 55, 55);
+  font-size: calc(4px + 2vmin);
+}
+
+.label_p2{
+  font-weight: bold;
+  font-size: calc(3px + 2.2vmin);
+}
+
+#Backgraound_Pass{
+  background-color:#025159;
+  color:white;
+  width: 100%;
+  height: 90vh;
+}
+
+.mb-2{
+  top: 20%;
+  left: 20%;
+}
+
+.mb-1{
+  top: 0%;
+  left: 60%;
+}

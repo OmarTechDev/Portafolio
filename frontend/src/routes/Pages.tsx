@@ -5,7 +5,10 @@ import Maintop from '../components/NavBar.tsx';
 import Body from '../components/Home/Body.tsx';
 import AboutBody from '../components/About.tsx';
 import Buttons from '../components/Calculator/buttonsCalculator.tsx';
-import logo from '../assets/logo.svg';
+import MultiPage from '../components/Login/multiApp.tsx';
+import Trail from '../components/Login/pass.tsx';
+
+import Logo from '../assets/logo.svg?react';
 
 // import Log from './components_multi/Login'
 // import Sign_in from './components_multi/Sign_in'
@@ -36,70 +39,30 @@ function Calculator(){
     <div>
       <Maintop/>
       <div className="App-header">
-        <h1 key="Title">Calculadora Científica  <img src={logo} className="App-logo" alt="logo" /></h1>
+        <h1 key="Title">Calculadora Científica  <Logo className="App-logo" /></h1>
         <Buttons></Buttons>
       </div>
     </div>
   )
 }
 
-// function Multi(){
-//   const [visible, setVisible] = useState(false)
+  function Multi(){
+    return (
+      <div>
+        <Maintop/>
+        <MultiPage/>
+      </div>
+    )
+  }
 
-//   const hideWhenVisible = { display: visible ? 'none' : '' }
-//   const showWhenVisible = { display: visible ? '' : 'none' }
-
-//   const toggleVisibility = () => {
-//     setVisible(!visible)
-//   }
-//   return(
-//     <div>
-//       <Maintop/>
-//       <div className="M_Center">
-//         <Container className="paralelogramo2">
-//           <Accordion defaultActiveKey="0">
-//             <Accordion.Item eventKey="1" className="paralelo2">
-//               <Accordion.Header> Information Default:</Accordion.Header>
-//               <Accordion.Body>
-//                 <b>Username: usuario<br/>
-//                 Password: password4</b>
-//               </Accordion.Body>
-//             </Accordion.Item>
-//           </Accordion>
-//         </Container>
-//         <div className="paralelogramo">
-//           <b>This is an EXAMPLE page <br/>
-//         Don't Use <br/>REAL <br/>Information</b>
-//         </div>
-//         <div style={hideWhenVisible} className="login">
-//           <div className="h1_log">
-//             <h1 className="h1_log1">MultiApp  <img src={logo} className="App-logo" alt="logo" /></h1>
-//           </div>
-//           <Log/>
-//           <p className="labelq"><br/>Don't have an account? <Button className="labeli" variant="secondary" onClick={toggleVisibility}>
-//             Sing In
-//           </Button></p>
-//         </div>
-//         <div style={showWhenVisible} className="login">
-//           <h1>MultiApp  <img src={logo} className="App-logo" alt="logo" /></h1>
-//           <Sign_in/>
-//           <p className="labelq"><br/>Have an account? <Button className="labeli" variant="secondary" onClick={toggleVisibility}>
-//             Login
-//           </Button></p>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// function Pass(){
-//   return(
-//     <div className="Calc">
-//       <Maintop/>
-//       <Trail/>
-//     </div>
-//   )
-// }
+function Pass(){
+  return(
+    <div className="Calc">
+      <Maintop/>
+      <Trail/>
+    </div>
+  )
+}
 
 function PhoneB(){
   return(
@@ -112,4 +75,4 @@ function PhoneB(){
   )
 }
 
-export { HomePage, AboutPage, Calculator, PhoneB}
+export { HomePage, AboutPage, Calculator, PhoneB, Multi, Pass}

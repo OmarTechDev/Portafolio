@@ -13,7 +13,14 @@ function Trail(){
       nav('/multi')
     }
   }, [])
-  let log = JSON.parse(window.localStorage.getItem('loggedNoteappUser'))
+
+  let log: any = null;
+
+  const storedData = window.localStorage.getItem('loggedNoteappUser');
+
+  if (storedData !== null) {
+    log = JSON.parse(storedData);
+  }
 
   const [hover, setHover] = useState(false)
   const [hover2, setHover2] = useState(false)

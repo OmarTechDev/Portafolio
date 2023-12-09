@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ReactComponent as EyeC } from '../../assets/eye-slash.svg';
-import { ReactComponent as Eye } from '../../assets/eye.svg';
+import EyeC from '../../assets/eye-slash.svg?react';
+import Eye from '../../assets/eye.svg?react';
 
 import './Login.css'
 import loginService from '../../services/loginService'
@@ -13,7 +13,7 @@ function Log() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const [user, setUser] = useState(null)
+  const [, setUser] = useState(null)
   const history = useNavigate()
   const [visible, setVisible] = useState(true)
 
@@ -69,7 +69,7 @@ function Log() {
         <label className="label_p" htmlFor="formBasicPassword">
           Password &#160;&#160;&#160;
           <EyeC onClick={toggleVisibility} style={hideWhenVisible} className="eye-icon"/>
-          <Eye onClick={toggleVisibility} style={showWhenVisible} className="eye-icon"></Eye>
+          <Eye onClick={toggleVisibility} style={showWhenVisible} className="eye-icon"/>
         </label>
         <input
           className="labeli form-control"
