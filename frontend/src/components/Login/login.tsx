@@ -40,7 +40,8 @@ function Log() {
       setUsername('')
       setPassword('')
       history('/multi/pass')
-    } catch (exception) {
+    }
+    catch (exception) {
       setErrorMessage(`Wrong credentials ${exception}`)
       setTimeout(() => {
         setErrorMessage('')
@@ -67,7 +68,7 @@ function Log() {
       </div>
       <div className="mb-3">
         <label className="label_p" htmlFor="formBasicPassword">
-          Password &#160;&#160;&#160;
+          Password &#160;
           <EyeC onClick={toggleVisibility} style={hideWhenVisible} className="eye-icon"/>
           <Eye onClick={toggleVisibility} style={showWhenVisible} className="eye-icon"/>
         </label>
@@ -80,7 +81,7 @@ function Log() {
           onChange={({ target }) => setPassword(target.value)}
         />
       </div>
-      <button className="labeli btn btn-secondary" type="submit">
+      <button className="labeli btn btn-primary" type="submit">
         Login
       </button>
       <Notification message={errorMessage} />
