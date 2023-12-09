@@ -10,8 +10,8 @@ namespace backendNet.Models
     [BsonRepresentation(BsonType.ObjectId)]
     public string? Id { get; set; }
 
-    [BsonElement("username")]
-    public required string Username { get; set; }
+    [BsonElement("email")]
+    public required string Email { get; set; }
 
     [BsonElement("name")]
     public required string Name { get; set; }

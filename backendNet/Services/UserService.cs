@@ -24,9 +24,9 @@ namespace backendNet.Services
       return _userRepository.GetByIdAsync(id);
     }
 
-    public async Task<bool> CheckDuplicateUser(User user)
+    public bool CheckDuplicateUserAsync(User user)
     {
-      var existingUserByName = await _userRepository.GetByNameAsync(user.Name);
+      var existingUserByName = _userRepository.GetByNameAsync(user.Name);
       if (existingUserByName != null)
       {
         return true;

@@ -41,6 +41,11 @@ namespace backendNet.Controller
         return BadRequest();
       }
 
+      if (!_userService.CheckDuplicateUserAsync(user)){
+        var errorMessage = "UserName already used, try another one.";
+        return BadRequest(new { error = errorMessage });
+      }
+
       user.SetPassword(user.PasswordHash);
 
       await _userService.CreateAsync(user).ConfigureAwait(false);
@@ -56,27 +61,20 @@ namespace backendNet.Controller
         return NotFound();
       }
       await _userService.UpdateAsync(id, userIn).ConfigureAwait(false);
-      return NoContent();
+      return Ok(userIn);
     }
 
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {
      var user = await _userService.GetByIdAsync(id).ConfigureAwait(false);
-      if (user == null)
+      if (user == null || user.Id == null)
       {
         return NotFound();
       }
 
-      if (user.Id != null)
-      {
-        await _userService.DeleteAsync(user.Id).ConfigureAwait(false);
-        return NoContent();
-      }
-      else
-      {
-        return BadRequest("User ID is null.");
-      }
+      await _userService.DeleteAsync(user.Id).ConfigureAwait(false);
+      return Ok(user);
     }
   }
 }

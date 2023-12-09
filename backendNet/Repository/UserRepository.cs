@@ -44,7 +44,14 @@ namespace backendNet.Repository
     }
     public Task UpdateAsync(string id, User user)
     {
-      return _collection.ReplaceOneAsync(userFilter => userFilter.Id == id, user);
+      var newUser = new User
+      {
+        Id = id,
+        Email = user.Email,
+        Name = user.Name,
+        PasswordHash = user.PasswordHash,
+      };
+      return _collection.ReplaceOneAsync(userFilter => userFilter.Id == id, newUser);
     }
     public Task DeleteAsync(string id)
     {

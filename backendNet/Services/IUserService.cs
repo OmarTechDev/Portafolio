@@ -8,6 +8,7 @@ namespace backendNet.Services
   {
     Task<List<User>> GetAllAsync();
     Task<User> GetByIdAsync(string id);
+    bool CheckDuplicateUserAsync(User user);
     Task<User> CreateAsync(User user);
     Task UpdateAsync(string id, User User);
     Task DeleteAsync(string id);
