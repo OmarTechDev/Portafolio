@@ -21,7 +21,11 @@ const PhonebookCard: React.FC<PhonebookCardProps> = ({hover, setHover}) => (
       <h5 className="card-title">Phonebook</h5>
       <p className="card-text">
         A simple Page of a Phonebook, with a Database on <b>MongoDB</b><br/><br/>
-        <Link to='/multi/pass/phonebook' id='PassLink1'>Go to the Page</Link>
+        <Link to='/multi/pass/phonebook'>
+          <div id='PassLink1'>
+            Go to the Page
+          </div>
+        </Link>
       </p>
     </div>
   </div>

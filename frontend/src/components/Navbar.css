@@ -33,10 +33,10 @@
 }
 
 .navbar-brand {
-    width: calc(42vmin);
-    font-size: calc(3vmax);
+    font-size: calc(2.7vmax);
     color: #00c8ff;
-    width: 30vw;
+    width: 32vw;
+    margin-left: -2vw;
 }
 
 .navbar-brand:hover {

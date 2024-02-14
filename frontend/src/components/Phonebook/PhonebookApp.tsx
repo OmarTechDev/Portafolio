@@ -12,18 +12,17 @@ const Filter: React.FC<FilterProps>  = ({ filter,handleFilter }) =>
 (
   <div id="Filter">
     <label htmlFor="filterName">
-      <b>Search Bar:</b>
+      <b>Search:</b>
+      <div id="filt_bar">
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Name..."
+          value={filter}
+          onChange={(e) => handleFilter(e.target.value)}
+        />
+      </div>
     </label>
-    <div id="filt_bar">
-      <input
-        type="text"
-        className="form-control"
-        id="filterName"
-        placeholder="Search"
-        value={filter}
-        onChange={(e) => handleFilter(e.target.value)}
-      />
-    </div>
   </div>
 )
 
@@ -51,7 +50,7 @@ const Notebook: React.FC<NotebookProps> = ({Name, filter, setData, updateName, s
 
   return filteredAndSortedContacts.map(note => (
     <Book
-      onData={async (childData) => setData(childData.name)} // Get the data of which element is going to be edited
+      onData={async (childData) => setData(childData.name)}
       key={note.id}
       note={note}
       filter={filter}
@@ -86,14 +85,14 @@ const Phone_App: React.FC = () => {
   return (
     <div className="Phonebook"><br/>
       <div className="header-container">
-        <h1 id="TitlePhonebook"><u>Phonebook</u></h1>
+        <h2 id="TitlePhonebook"><u>Phonebook</u></h2>
         <Notification message={errorMessage} selected={selected} />
       </div><br/>
       <Filter filter={filter} handleFilter={(value) => setFilter(value)}/><br/>
       <Addinfo updateName={updateName} setErrorMessage={setErrorMessage} Name={Name}/>
       <h3 id="title_h3_phonebook"><u>Your contacts</u><br/></h3>
       <div className="book">
-        <div className="col" id="ul">
+        <div className="accordion">
           <Notebook Name={Name} filter={filter} setData={setData} updateName={updateName} setErrorMessage={setErrorMessage}/>
         </div>
       </div>

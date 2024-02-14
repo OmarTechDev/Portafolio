@@ -37,8 +37,9 @@
 
 #PassLink1{
   color: black;
+  margin-left: 9vw;
+  width: 10vw;
   background-color: rgb(5, 251, 255);
-  width: 20vw;
   border-radius: 3px;
 }
 

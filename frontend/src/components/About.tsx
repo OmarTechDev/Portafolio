@@ -7,10 +7,11 @@ function AboutBody() {
       title: "How would you describe your experience in Full Stack development?",
       body: (
         <>
-          I describe my experience as a constant learning process that began when I realized how vast and interesting web development is,
+          My personal experience was a constant learning process that began when I realized how vast and interesting web development is,
           prompting me to become a web developer by myself. I took my first step by taking free online courses on my own which culminated in
           obtaining a FullStack diploma from <b>Universidad Simón y Patiño</b> and completing the Open online course from <b>University
-          of Helsinki</b>. Now I could embark on the next stage, which I consider to be the employment of the knowledge learned.
+          of Helsinki</b>. Now I am looking to embark on the next stage, which I consider to be the employment of the knowledge learned,
+          in a really company.
         </>
       ),
     },
@@ -18,9 +19,10 @@ function AboutBody() {
       title: "What programming languages do you master?",
       body: (
         <>
-          I am proficient in <b>Javascript</b> <b>[</b>Express, Nodejs, jwt, bycrypt, axios, Eslint, async/await<b>]</b> and <b>React</b> <b>[</b>
-          css, react-bootstrap, Collections, Keys Attributes ,Forms, etc<b>]</b>. I am also familiar with other programming languages such as
-          Django and Python, although my preference and greater proficiency lie with the former.
+          I am proficient in <b>JavaScript, TypeScript, C#</b>, with expertise in <b>Node.js, React, and .NET</b>.
+          My skills extend to both relational and non-relational databases, including <b>MongoDB, MySQL, PostgresSQL, MariaDB, etc.</b>
+          Additionally, I have experience with other programming languages such as Django and Python, but my preference and greater
+          proficiency lie in working with React.
         </>
       ),
     },
@@ -28,10 +30,10 @@ function AboutBody() {
       title: "What recent projects have you developed?",
       body: (
         <>
-          This is the most recent project that I have at the moment, although as can be seen on my GitHub account, I have several projects that
-          I have been working on during my learning process, but they are not yet at a level of completeness that allows me to showcase them at
-          the moment in my <b>Portfolio</b>, with the exception of a calculator. I have also completed Dockerization projects with Jenkins and Nexus
-          as a final project for a diploma.
+          This is the most recent project that I have at the moment, although as can be seen on my personal and professional GitHub
+          account, I have several projects that I have been working on during my learning process, but they are not yet at a level
+          of completeness that allows me to showcase them at the moment in my <b>Portfolio</b>, updating this from JavaScript to
+          TypeScript and using .Net for the backend.
         </>
       ),
     },

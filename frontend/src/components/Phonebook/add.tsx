@@ -80,7 +80,7 @@ const AddForm: React.FC<AddFormProps> = ({
     <AddNameForm newName={newName} setNewName={setNewName}/>
     <AddNumberForm newNumber={newNumber} setNewNumber={setNewNumber}/>
     <AddEmailForm newEmail={newEmail} setNewEmail={setNewEmail}/>
-    <button type="submit" className="btn btn-info">Add</button>
+    <button type="submit" className="btn btn-outline-primary"><b>Add</b></button>
   </form>
 );
 
@@ -157,9 +157,9 @@ const Addinfo =(props: AddInfoProps) => {
   }
 
   return(
-    <div className="card bg-primary text-white" id="Addinfo_phone">
+    <div className="card text-bg-info mb-3" id="Addinfo_phone">
       <div className="card-header">
-        <b>Add a new Contact</b>
+        <b>Create Contact</b>
       </div>
       <div className="card-body">
         <AddForm

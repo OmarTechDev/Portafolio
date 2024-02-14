@@ -44,7 +44,6 @@ const CarouselIndicators: React.FC<CarouselIndicatorsProps> = ({numberOfSlides})
   return <div className="carousel-indicators">{buttons}</div>;
 };
 
-
 const CarouselItems: React.FC<CarouselRepresentProps> = ({carouselItems, images, titles, components}) =>{
   const CarouselItemsRepresents = Array.from({ length: carouselItems }, (_, index) => (
     <div className={index === 0 ? "carousel-item active" : "carousel-item"}>
@@ -60,7 +59,6 @@ const CarouselItems: React.FC<CarouselRepresentProps> = ({carouselItems, images,
 }
 
 const CarouselRepresent: React.FC<CarouselRepresentProps> = ({carouselItems, images, titles, components}) => {
-
   return(
     <div id="carouselExampleCaptions" className="carousel slide">
       <CarouselIndicators numberOfSlides={carouselItems} />
