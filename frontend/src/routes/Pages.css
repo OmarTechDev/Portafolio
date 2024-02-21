@@ -140,7 +140,7 @@ scrollbar-width: none;  /* Firefox */
 .h1_log{
   position: flex;
   width: calc(42vmin);
-  background-color: #0b7a86;
+  background-color: #009cf0;
   border-radius: 10px;
 }
 

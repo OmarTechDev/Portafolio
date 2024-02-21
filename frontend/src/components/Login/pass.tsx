@@ -16,17 +16,17 @@ interface NoteCardProps {
 
 const PhonebookCard: React.FC<PhonebookCardProps> = ({hover, setHover}) => (
   <div className={`card mb-2 p-0 ${hover ? 'bg-secondary' : 'bg-dark'}`} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-    <div className="card-header1 text-white">Prototype Version 1.0</div>
+    <div className="card-header1 text-white">Prototype Version 1.3</div>
     <div className="card-body">
       <h5 className="card-title">Phonebook</h5>
-      <p className="card-text">
+      <div className="card-text">
         A simple Page of a Phonebook, with a Database on <b>MongoDB</b><br/><br/>
         <Link to='/multi/pass/phonebook'>
           <div id='PassLink1'>
             Go to the Page
           </div>
         </Link>
-      </p>
+      </div>
     </div>
   </div>
 )

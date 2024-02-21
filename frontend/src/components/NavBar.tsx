@@ -15,10 +15,10 @@ const ElementsBar = () => (
           Projects
         </a>
         <ul className="dropdown-menu">
-          <li><a className="dropdown-item" href="/calculator">Calculator</a></li>
           <li><a className="dropdown-item" href="/Multi">MultiApp</a></li>
+          <li><a className="dropdown-item" href="/calculator">Calculator</a></li>
           <li><hr className="dropdown-divider" /></li>
-          <li><a className="dropdown-item" href="#action5">Coming soon</a></li>
+          <li><a className="dropdown-item" href="/rovers">Rovers Game</a></li>
         </ul>
       </li>
     </ul>

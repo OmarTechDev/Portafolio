@@ -1,8 +1,10 @@
 .questionContainer{
-    background-color: rgb(134, 219, 255);
-    position: absolute;
-    top: 10vh;
-    left: 0;
-    width: 100vw;
-    min-height: 90vh;
+  background-color: rgb(134, 219, 255);
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100vw;
+  min-height: 90vh;
+  align-items: center;
 }
+

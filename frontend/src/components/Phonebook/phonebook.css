@@ -1,6 +1,6 @@
 .Phonebook{
-  background-image: url('../../assets/backgroundsPhonebook.jpg');
-  /* background-color: #0598a8; */
+  /* background-image: url('../../assets/backgroundsPhonebook.jpg'); */
+  background-color: #0e5ea4;
   position: absolute;
   top: 10vh;
   left: 0;
@@ -45,7 +45,7 @@
 #Addinfo_phone{
   position: absolute;
   left:60vw;
-  top:20vh;
+  top:30vh;
   width:34vw;
   min-height: 30vh;
 }
@@ -53,7 +53,7 @@
 #Edit_phone{
   position: absolute;
   left:60vw;
-  top:20vh;
+  top:30vh;
   width:34vw;
   min-height: 30vh;
 }

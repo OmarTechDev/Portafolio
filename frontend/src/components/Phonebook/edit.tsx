@@ -22,10 +22,10 @@ interface EditEmailFormProps {
 
 const EditNameForm: React.FC<EditNameFormProps> = ({newName, setNewName}) => (
   <div className="mb-3 row">
-    <label className="col-sm-4 col-form-label">
+    <label className="col-sm-3 col-form-label">
       <b>Name:</b>
     </label>
-    <div className="col-sm-8">
+    <div className="col-sm-9">
       <input
         type="text"
         className="form-control"
@@ -38,10 +38,10 @@ const EditNameForm: React.FC<EditNameFormProps> = ({newName, setNewName}) => (
 
 const EditNumberForm: React.FC<EditNumberFormProps> = ({newNumber, setNewNumber}) => (
   <div className="mb-3 row">
-    <label className="col-sm-4 col-form-label">
+    <label className="col-sm-3 col-form-label">
       <b>Number:</b>
     </label>
-    <div className="col-sm-8">
+    <div className="col-sm-9">
       <input
         type="text"
         className="form-control"
@@ -54,10 +54,10 @@ const EditNumberForm: React.FC<EditNumberFormProps> = ({newNumber, setNewNumber}
 
 const EditEmailForm: React.FC<EditEmailFormProps> = ({newEmail, setNewEmail}) => (
   <div className="mb-3 row">
-    <label className="col-sm-4 col-form-label">
+    <label className="col-sm-3 col-form-label">
       <b>Email:</b>
     </label>
-    <div className="col-sm-8">
+    <div className="col-sm-9">
       <input
         type="text"
         className="form-control"
@@ -141,7 +141,7 @@ const Edition = (props:EditProps) => {
   }
 
   return(
-    <div className="card text-white bg-secondary" id="Edit_phone">
+    <div className="card text-white bg-primary" id="Edit_phone">
       <div className="card-header Card_Header"><b>Edit {data}</b></div>
       <div className="card-body">
         <EditForm

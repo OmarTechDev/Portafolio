@@ -46,6 +46,7 @@ namespace backendNet
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       app.UseSwagger();
+      app.UseStaticFiles();
       app.UseSwaggerUI(c =>
       {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "MongoDB CRUD API PORTAFOLIO V1");
@@ -67,6 +68,7 @@ namespace backendNet
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();
+        endpoints.MapFallbackToFile("index.html");
       });
     }
   }

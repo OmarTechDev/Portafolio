@@ -11,7 +11,7 @@ import EfsetImage from '../../assets/EFSET.jpg';
 import BcImage from '../../assets/BC.jpg';
 import ReactImage2 from '../../assets/React.png';
 import NodeImage from '../../assets/Node.png';
-import MongoImage from '../../assets/Mongo.png';
+import cShaRD from '../../assets/C.png'
 
 interface RepresentProps {
   val: number;
@@ -131,8 +131,8 @@ const Represent: React.FC<RepresentProps> = ({ val }) =>
       <CarouselRepresent carouselItems={2} images={images3} titles={titles3} components={components3}/>
     )
   case 4:
-    const images4 = [ReactImage2, NodeImage, MongoImage]
-    const titles4 = ['', 'Jest || ESlint || Express', 'Preferred Database || MySQL']
+    const images4 = [ReactImage2, NodeImage, cShaRD]
+    const titles4 = ['', 'JavaScript || TypeScript', 'This page use .Net']
     const components4 = [ <p className="react"> <b>This page was made on REACT.tsx</b></p>, null, null]
     return(
       <CarouselRepresent carouselItems={3} images={images4} titles={titles4} components={components4}/>

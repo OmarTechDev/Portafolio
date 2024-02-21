@@ -65,11 +65,11 @@ function AboutBody() {
         <div className="accordion" id={`accordion${index}`}>
           <div className="accordion-item">
             <h2 className="accordion-header">
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`} >
+              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="true" aria-controls={`collapse${index}`} >
                 {element.title}
               </button>
             </h2>
-            <div id={`collapse${index}`} className="accordion-collapse collapse" data-bs-parent={`#accordion${index}`}>
+            <div id={`collapse${index}`} className="accordion-collapse collapse show" data-bs-parent={`#accordion${index}`}>
               <div className="accordion-body">
                 {element.body}
               </div>

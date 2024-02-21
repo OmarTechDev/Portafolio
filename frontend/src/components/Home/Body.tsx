@@ -127,7 +127,7 @@ function Body() {
           <EducationRepresent
             showhideElement={showhide3}
             imageSrc={LanguageImage}
-            title='Fluencies'
+            title='Languages'
             arrow='arrow3'
             Topic='Languages'
             represent='represent3'

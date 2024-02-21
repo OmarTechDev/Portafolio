@@ -7,6 +7,7 @@ import AboutBody from '../components/About.tsx';
 import Buttons from '../components/Calculator/buttonsCalculator.tsx';
 import MultiPage from '../components/Login/multiApp.tsx';
 import Trail from '../components/Login/pass.tsx';
+import BodyRovers from '../components/RoversGame/Body.tsx';
 
 import Logo from '../assets/logo.svg?react';
 
@@ -36,21 +37,21 @@ function Calculator(){
     <div>
       <Maintop/>
       <div className="App-header">
-        <h1 key="Title">Calculadora Científica  <Logo className="App-logo" /></h1>
+        <h2 key="Title">Calculadora Científica  <Logo className="App-logo" /></h2>
         <Buttons></Buttons>
       </div>
     </div>
   )
 }
 
-  function Multi(){
-    return (
-      <div>
-        <Maintop/>
-        <MultiPage/>
-      </div>
-    )
-  }
+function Multi(){
+  return (
+    <div>
+      <Maintop/>
+      <MultiPage/>
+    </div>
+  )
+}
 
 function Pass(){
   return(
@@ -72,4 +73,13 @@ function PhoneB(){
   )
 }
 
-export { HomePage, AboutPage, Calculator, PhoneB, Multi, Pass}
+function Rovers() {
+  return (
+    <div>
+      <Maintop/>
+      <BodyRovers/>
+    </div>
+  )
+}
+
+export { HomePage, AboutPage, Calculator, PhoneB, Multi, Pass, Rovers}
