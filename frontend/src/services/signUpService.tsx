@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:5097/api/users/'
+const baseUrl = `${import.meta.env.VITE_API_BASE_URL}/users/`
 import Credentials from './credentials';
 
 const sign = async (credentials: Credentials) => {

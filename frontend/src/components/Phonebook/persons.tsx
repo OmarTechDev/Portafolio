@@ -1,5 +1,5 @@
 import axios from 'axios'
-const URL = 'http://localhost:5097/api/persons/'
+const URL = `${import.meta.env.VITE_API_BASE_URL}/persons/`
 import {Person} from './kinds';
 
 const getAll = async () => {
