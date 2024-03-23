@@ -34,12 +34,22 @@ namespace backendNet
       services.AddControllers();
       services.AddCors(options =>
       {
-          options.AddDefaultPolicy(builder =>
+        options.AddDefaultPolicy(builder =>
+        {
+          Console.WriteLine("ASDASD: {0}", Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"));
+          if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
           {
-              builder.WithOrigins("http://localhost:5173")
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-          });
+            builder.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+          }
+          else
+          {
+            builder.WithOrigins("https://delicate-lake-5083.fly.dev")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+          }
+        });
       });
     }
 
@@ -58,11 +68,8 @@ namespace backendNet
       }
 
       app.UseCors();
-
       app.UseHttpsRedirection();
-
       app.UseRouting();
-
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>

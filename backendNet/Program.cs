@@ -26,6 +26,10 @@ namespace backendNet
         .ConfigureWebHostDefaults(webBuilder =>
         {
           webBuilder.UseStartup<Startup>();
+          webBuilder.ConfigureKestrel(serverOptions =>
+          {
+            serverOptions.ListenAnyIP(8080);
+          });
         });
   }
 }

@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --mode development",
+    "build:production": "tsc && vite build --mode production",
+    "build:uiP": "npm run build:production && ncp build ../backendNet/wwwroot",
     "build:ui": "npm run build && ncp build ../backendNet/wwwroot",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"

@@ -1,4 +1,4 @@
-@backendNet_HostAddress = http://localhost:5097
+@backendNet_HostAddress = https://delicate-lake-5083.fly.dev
 
 GET {{backendNet_HostAddress}}/weatherforecast/
 Accept: application/json

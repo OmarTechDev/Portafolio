@@ -14,14 +14,16 @@ namespace backendNet.Repository
     public required string Id { get; set; }
     public required string Name { get; set; }
     public required string Number { get; set; }
-    public string? Email { get; set; } // También aquí
+    public string? Email { get; set; }
   }
   public class PersonRepository : IPersonRepository
   {
     private readonly IMongoCollection<Person> _collection;
-    private readonly DbConfiguration _settings;
+    private readonly DbConfiguration? _settings;
     public PersonRepository(IConfiguration settings)
     {
+      if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+      {
       var mongoDbSettingsSection = settings.GetSection("MongoDbConnection");
       var mongoDbSettings = (mongoDbSettingsSection?.Get<DbConfiguration>()) ??
         throw new InvalidOperationException("Configuration for MongoDbConnection is not found or null");
@@ -30,6 +32,23 @@ namespace backendNet.Repository
       var client = new MongoClient(_settings.ConnectionString);
       var database = client.GetDatabase(_settings.DatabaseName);
       _collection = database.GetCollection<Person>(_settings.CollectionPersons);
+      }
+      else if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+      {
+        var connectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING");
+        if (string.IsNullOrEmpty(connectionString))
+        {
+          throw new InvalidOperationException("MongoDB connection string is not configured.");
+        }
+
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("Portafolio");
+        _collection = database.GetCollection<Person>("Persons");
+      }
+      else
+      {
+        throw new InvalidOperationException("Unknown environment.");
+      }
     }
 
     public Task<List<Person>> GetAllAsync()

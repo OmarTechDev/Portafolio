@@ -12,17 +12,36 @@ namespace backendNet.Repository
   public class UserRepository : IUserRepository
   {
     private readonly IMongoCollection<User> _collection;
-    private readonly DbConfiguration _settings;
+    private readonly DbConfiguration? _settings;
     public UserRepository(IConfiguration settings)
     {
-      var mongoDbSettingsSection = settings.GetSection("MongoDbConnection");
-      var mongoDbSettings = (mongoDbSettingsSection?.Get<DbConfiguration>()) ??
-        throw new InvalidOperationException("Configuration for MongoDbConnection is not found or null");
+      if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+      {
+        var mongoDbSettingsSection = settings.GetSection("MongoDbConnection");
+        var mongoDbSettings = (mongoDbSettingsSection?.Get<DbConfiguration>()) ??
+          throw new InvalidOperationException("Configuration for MongoDbConnection is not found or null");
 
-      _settings = mongoDbSettings;
-      var client = new MongoClient(_settings.ConnectionString);
-      var database = client.GetDatabase(_settings.DatabaseName);
-      _collection = database.GetCollection<User>(_settings.CollectionUsers);
+        _settings = mongoDbSettings;
+        var client = new MongoClient(_settings.ConnectionString);
+        var database = client.GetDatabase(_settings.DatabaseName);
+        _collection = database.GetCollection<User>(_settings.CollectionUsers);
+      }
+      else if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+      {
+        var connectionString = Environment.GetEnvironmentVariable("MONGODB_CONNECTION_STRING");
+        if (string.IsNullOrEmpty(connectionString))
+        {
+          throw new InvalidOperationException("MongoDB connection string is not configured.");
+        }
+
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("Portafolio");
+        _collection = database.GetCollection<User>("Users");
+      }
+      else
+      {
+        throw new InvalidOperationException("Unknown environment.");
+      }
     }
 
     public Task<List<User>> GetAllAsync()
