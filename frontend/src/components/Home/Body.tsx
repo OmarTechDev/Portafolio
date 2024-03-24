@@ -9,15 +9,6 @@ import DiplomaImage from '../../assets/Diploma.png';
 import LanguageImage from '../../assets/Languages.png';
 import SoftwareImage from '../../assets/software.png';
 
-interface ListElementProps {
-  showhideElement: (value: number) => void;
-  imageSrc: string;
-  title: string;
-  arrow: string;
-  Topic?: string;
-  represent? : string;
-}
-
 const ListElement: React.FC<ListElementProps> = ({showhideElement, imageSrc, title, arrow }) => (
   <li className="l1left">
     <p>
@@ -88,7 +79,7 @@ function Body() {
 
   const handleChangeV = (e: number) => setV(e);
 
-  const showhide = (a: number) => {
+  function showhide(a: number) {
     Switch('represent', 'arrow', a, handleChangeV, showhide2, showhide3, showhide4, 1)
   }
 
@@ -104,52 +95,37 @@ function Body() {
     Switch('represent4', 'arrow4', a, handleChangeV, showhide, showhide2, showhide3, 4)
   }
 
+  const educationItems: ListElementProps[] = [
+    { showhideElement: showhide,imageSrc: EstudiesImage, title: 'Education', arrow: 'arrow', Topic: 'Education', represent: 'represent' },
+    { showhideElement: showhide2,imageSrc: DiplomaImage, title: 'Diplomas - Courses', arrow: 'arrow2', Topic: 'Diploma', represent: 'represent2' },
+    { showhideElement: showhide3,imageSrc: LanguageImage, title: 'Languages', arrow: 'arrow3', Topic: 'Languages', represent: 'represent3' },
+    { showhideElement: showhide4,imageSrc: SoftwareImage, title: 'Software', arrow: 'arrow', Topic: 'Software', represent: 'represent4' },
+  ];
+
   return (
-    <main className="bodyprincipal">
-      <div className="bodytopleft">
-        <div className="bodytopleftelements">
-          <EducationRepresent
-            showhideElement={showhide}
-            imageSrc={EstudiesImage}
-            title='Education'
-            arrow='arrow'
-            Topic='Education'
-            represent= 'represent'
-          />
-          <EducationRepresent
-            showhideElement={showhide2}
-            imageSrc={DiplomaImage}
-            title='Diplomas - Courses'
-            arrow='arrow2'
-            Topic='Diploma'
-            represent='represent2'
-          />
-          <EducationRepresent
-            showhideElement={showhide3}
-            imageSrc={LanguageImage}
-            title='Languages'
-            arrow='arrow3'
-            Topic='Languages'
-            represent='represent3'
-          />
-          <EducationRepresent
-            showhideElement={showhide4}
-            imageSrc={SoftwareImage}
-            title='Software'
-            arrow='arrow4'
-            Topic='Software'
-            represent='represent4'
-          />
-          <h1 className="H1">"Technology is a tool that allows us to unleash our creativity and bring our ideas to life" </h1>
+    <div>
+      <div style={{ display: 'flex' }}>
+        <div className="bodytopleft">
+          <div className="bodytopleftelements">
+            {educationItems.map((item) => (
+              <EducationRepresent
+                showhideElement={item.showhideElement}
+                imageSrc={item.imageSrc}
+                title={item.title}
+                arrow={item.arrow}
+                Topic={item.Topic}
+                represent={item.represent}
+            />
+            ))}
+            <h1 className="H1">"Technology is a tool that allows us to unleash our creativity and bring our ideas to life" </h1>
+          </div>
+        </div>
+        <div className="bodyright">
+          <Represent val={val} />
         </div>
       </div>
-      <div className="bodyright">
-        <Represent val={val} />
-      </div>
-      <div className="bodybottomleft">
-        <Contact/>
-      </div>
-    </main>
+      <Contact/>
+    </div >
   )
 }
 

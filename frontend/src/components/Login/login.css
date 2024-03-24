@@ -56,5 +56,13 @@
   top: -10%;
   left: 60%;
   height: 20vh;
-  width: 20vw;
+  width: 2vw;
+}
+
+.parallelogram2{
+  position: absolute;
+  display: flex;
+  top: 40%;
+  left: 10%;
+  width: 18vw;
 }

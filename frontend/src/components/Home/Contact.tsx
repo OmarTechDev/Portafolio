@@ -54,8 +54,7 @@ function Contact(){
     }, 4000)
   }
   return(
-    <div className="Show">
-
+    <div className="bodybottom">
       <img
         src={LinkedInImage}
         id="i_Contact"
@@ -76,9 +75,9 @@ function Contact(){
         alt="WhatsappImage"
       />
       {showText2 &&
-        <p className="Whats">
+        <span className="Whats">
           &#160;&#160;&#160; 63968723 &#160;
-        </p>
+        </span>
       }
       <img
         src={GithubImage}

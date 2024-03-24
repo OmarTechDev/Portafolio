@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import doThings from './persons'
 import switchAddEdit from './addEditPhone'
-import {Person, EditProps, EditFormProps} from './kinds';
+import {Person, EditProps, EditFormProps} from './type';
 
 import './phonebook.css'
 

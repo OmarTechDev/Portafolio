@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import doThings from './persons'
-import {Person, BookProps} from './kinds';
+import {Person, BookProps} from './type';
 import switchAddEdit from './addEditPhone'
 
 import './phonebook.css'

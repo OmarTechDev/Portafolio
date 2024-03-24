@@ -1,6 +1,6 @@
 import axios from 'axios'
 const URL = `${import.meta.env.VITE_API_BASE_URL}/persons/`
-import {Person} from './kinds';
+import {Person} from './type';
 
 const getAll = async () => {
   const request = axios.get(URL)

@@ -3,7 +3,7 @@ import Routes from './routes/AppRoutes.tsx'
 
 function App() {
   return (
-    <div className='App'>
+    <div className="maincontainer">
       <Routes />
     </div>
   )

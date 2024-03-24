@@ -1,7 +1,7 @@
-import './PageS.css'
+import './Pages.css'
 //import { useState } from 'react';
 
-import Maintop from '../components/NavBar.tsx';
+import NavBar from '../components/NavBar.tsx';
 import Body from '../components/Home/Body.tsx';
 import AboutBody from '../components/About.tsx';
 import Buttons from '../components/Calculator/buttonsCalculator.tsx';
@@ -16,8 +16,8 @@ import Phone_App from '../components/Phonebook/PhonebookApp'
 
 function HomePage() {
   return (
-    <div>
-      <Maintop/>
+    <div style={{ height:'100vh', width:'100vw' }}>
+      <NavBar/>
       <Body/>
     </div>
   )
@@ -25,8 +25,8 @@ function HomePage() {
 
 function AboutPage() {
   return (
-    <div>
-      <Maintop/>
+    <div style={{ height:'100vh', width:'100vw' }}>
+      <NavBar/>
       <AboutBody/>
     </div>
   )
@@ -34,12 +34,9 @@ function AboutPage() {
 
 function Calculator(){
   return(
-    <div>
-      <Maintop/>
-      <div className="App-header">
-        <h2 key="Title">Calculadora Científica  <Logo className="App-logo" /></h2>
-        <Buttons></Buttons>
-      </div>
+    <div className="App-header">
+      <h2 key="Title">Calculadora Científica  <Logo className="App-logo" /></h2>
+      <Buttons></Buttons>
     </div>
   )
 }
@@ -47,7 +44,7 @@ function Calculator(){
 function Multi(){
   return (
     <div>
-      <Maintop/>
+      <NavBar/>
       <MultiPage/>
     </div>
   )
@@ -56,7 +53,7 @@ function Multi(){
 function Pass(){
   return(
     <div className="Calc">
-      <Maintop/>
+      <NavBar/>
       <Trail/>
     </div>
   )
@@ -64,11 +61,9 @@ function Pass(){
 
 function PhoneB(){
   return(
-    <div>
-      <Maintop/>
-      <div className="Phone_Container">
-        <Phone_App/>
-      </div>
+    <div className="Phone_Container">
+      <NavBar/>
+      <Phone_App/>
     </div>
   )
 }
@@ -76,7 +71,7 @@ function PhoneB(){
 function Rovers() {
   return (
     <div>
-      <Maintop/>
+      <NavBar/>
       <BodyRovers/>
     </div>
   )

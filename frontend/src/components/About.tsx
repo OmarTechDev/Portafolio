@@ -61,11 +61,11 @@ function AboutBody() {
 
   return (
     <div className="questionContainer">
-      {printed.map((element,index) => (
-        <div className="accordion" id={`accordion${index}`}>
-          <div className="accordion-item">
+      <div className="accordion" id="accordionPanelsStayOpenExample">
+        {printed.map((element,index) => (
+          <div className="accordion-item" key={`accordion${index}`}>
             <h2 className="accordion-header">
-              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="true" aria-controls={`collapse${index}`} >
+              <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="true" aria-controls={`collapse${index}`}>
                 {element.title}
               </button>
             </h2>
@@ -75,8 +75,8 @@ function AboutBody() {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

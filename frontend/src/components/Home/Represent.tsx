@@ -13,21 +13,6 @@ import ReactImage2 from '../../assets/React.png';
 import NodeImage from '../../assets/Node.png';
 import cShaRD from '../../assets/C.png'
 
-interface RepresentProps {
-  val: number;
-}
-
-interface CarouselIndicatorsProps {
-  numberOfSlides: number;
-}
-
-interface CarouselRepresentProps  {
-  carouselItems: number;
-  images: string[];
-  titles: string[];
-  components: React.ReactNode[];
-};
-
 const CarouselIndicators: React.FC<CarouselIndicatorsProps> = ({numberOfSlides}) => {
   const buttons = Array.from({ length: numberOfSlides }, (_, index) => (
     <button

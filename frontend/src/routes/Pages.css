@@ -131,10 +131,9 @@
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .login {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
+-ms-overflow-style: none;
+scrollbar-width: none;
 }
 
 .h1_log{
@@ -142,6 +141,9 @@ scrollbar-width: none;  /* Firefox */
   width: calc(42vmin);
   background-color: #009cf0;
   border-radius: 10px;
+  align-items: center;
+  text-align: center;
+  text-align: center;
 }
 
 .h1_log1{
@@ -154,26 +156,22 @@ scrollbar-width: none;  /* Firefox */
   top: 40%;
   left: 70%;
   width: 20vw;
-  height: 20vh;
+  height: 24vh;
   border: calc(1px + 0.5vmin) solid #013440;
   background-color: #3098a3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   transform: skew(20deg);
   font-size: calc(2.7vmin);
-}
-
-.parallelogram2{
-  position: absolute;
-  display: flex;
-  top: 40%;
-  left: 10%;
-  width: 18vw;
 }
 
 .paralelo2{
   background-color: #6fe6ea;
   color: #000000;
   font-size: calc(2.7vmin);
-  width: 17vw;
+  width: 19vw;
 }
 
 .labeli{

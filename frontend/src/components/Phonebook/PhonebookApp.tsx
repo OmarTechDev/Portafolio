@@ -4,7 +4,7 @@ import Book from './book'
 import Addinfo from './add'
 import Edition from './edit'
 import switchAddEdit from './addEditPhone'
-import { FilterProps, SelectedStyle, Person, selectStyle, NotebookProps } from './kinds';
+import { FilterProps, SelectedStyle, Person, selectStyle, NotebookProps } from './type';
 
 import './phonebook.css'
 

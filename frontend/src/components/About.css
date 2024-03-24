@@ -1,10 +1,10 @@
 .questionContainer{
   background-color: rgb(134, 219, 255);
-  position: absolute;
-  top: 10vh;
-  left: 0;
   width: 100vw;
-  min-height: 90vh;
+  height: 88.5vh;
   align-items: center;
 }
 
+.custom-button {
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import doThings from './persons'
-import {Person, AddInfoProps, AddFormProps} from './kinds';
+import {Person, AddInfoProps, AddFormProps} from './type';
 
 import './phonebook.css'
 

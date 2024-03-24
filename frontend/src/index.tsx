@@ -9,13 +9,19 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 function ErrorFallback({ error, componentStack, resetErrorBoundary }: any) {
   return (
-    <div className='ERROR'>
-      <h1>F5 or manually REFRESH with the button below</h1>
-      <h2>Something goes wrong <u>Writting</u></h2>
-      <p>{error.toString()}</p>
-      <p>Component stack:</p>
-      <pre>{componentStack}</pre>
-      <button onClick={resetErrorBoundary}>Refresh</button>
+    <div className='error'>
+      <div className='card' style={{backgroundColor:'#dcdcdc'}}>
+        <div className="card-header">
+          <h2>Something goes <u>WRONG</u></h2>
+        </div>
+        <div className="card-body">
+          <h3 id='h1-error'>F5 or manually REFRESH with the button below</h3>
+          <p>Message Error Obtained: {error.toString()}</p>
+          <p>Component stack:</p>
+          <pre>{componentStack}</pre>
+          <button id="button-error" onClick={resetErrorBoundary}>Refresh</button>
+        </div>
+      </div>
     </div>
   );
 }

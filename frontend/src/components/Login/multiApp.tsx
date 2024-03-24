@@ -25,8 +25,8 @@ const Parallelogram = () => (
         </h2>
         <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne">
           <div className="accordion-body">
-            <b>Username: usuario<br/>
-            Password: password4</b>
+            <span><b>Username: usuario<br/>
+            Password: password4</b></span>
           </div>
         </div>
       </div>
@@ -79,8 +79,8 @@ const MultiPage: React.FC = () => {
     <div className="M_Center">
       <Parallelogram/>
       <div className="parallelogram">
-        <b>This is an EXAMPLE page <br/>
-        Don't Use <br/>REAL <br/>Information</b>
+        <span><b>This is an EXAMPLE page <br/>
+        Don't Use <br/>REAL <br/>Information</b></span>
       </div>
       <Login hideWhenVisible={hideWhenVisible} toggleVisibility={toggleVisibility} />
       <SignContainer showWhenVisible={showWhenVisible} toggleVisibility={toggleVisibility}/>

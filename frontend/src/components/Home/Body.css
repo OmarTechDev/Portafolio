@@ -1,147 +1,126 @@
-.bodyprincipal{
-    position: absolute;
-    top: 10vh;
-    left: 0;
-    width: 60vw;
-    min-height: 90vh;
-}
-
 .bodytopleft{
-    background:  #b8ac92;
-    height:80vh;
-    display: flex;
-    justify-content:left;
-    overflow: hidden;
+  background:  #b8ac92;
+  height:80vh;
+  width: 60vw;
+  display: flex;
+  justify-content:left;
+  overflow: hidden;
 }
 
 .bodytopleftelements{
-    background: #f3f2e3;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 1%;
-    margin-right: 1%;
-    width: 100%;
-    border-radius: 15px;
+  background: #f3f2e3;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .l1left{
-    color:black;
-    list-style: none;
-    font-size: calc(5vmin);
-    display: flex;
-    justify-content:left;
+  color:black;
+  list-style: none;
+  font-size: calc(5vmin);
+  display: flex;
+  justify-content:left;
 }
 
 #i_Diploma{
-    margin-left: 2vmin;
-    width: 5vmin;
-    height: 5vmin;
+  margin-left: 2vmin;
+  width: 5vmin;
+  height: 5vmin;
 }
 
 #i_Estudies{
-    margin-left: 2vmin;
-    width: 5vmin;
-    height: 5.5vmin;
+  margin-left: 2vmin;
+  width: 5vmin;
+  height: 5.5vmin;
 }
 
 #arrow{
-    width: 4vmin;
-    height: 4vmin;
+  width: 4vmin;
+  height: 4vmin;
 }
 
 #arrow2{
-    width: 4vmin;
-    height: 4vmin;
-    object-fit: cover;
+  width: 4vmin;
+  height: 4vmin;
+  object-fit: cover;
 }
 
 #arrow3{
-    width: 4vmin;
-    height: 4vmin;
+  width: 4vmin;
+  height: 4vmin;
 }
 
 #arrow4{
-    width: 4vmin;
-    height: 4vmin;
+  width: 4vmin;
+  height: 4vmin;
 }
 
 .rotate{
-    margin: 0;
+  margin: 0;
 }
 .rotate2{
-    margin: 0;
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .rotate {
-        animation: rotateR linear 0.5s;
-        animation-fill-mode: forwards;
-    }
-    .rotate2 {
-        animation: rotateL linear 0.5s;
-        animation-fill-mode: forwards;
-    }
+  .rotate {
+    animation: rotateR linear 0.5s;
+    animation-fill-mode: forwards;
+  }
+  .rotate2 {
+    animation: rotateL linear 0.5s;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes rotateR {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(180deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 @keyframes rotateL {
-    from {
-        transform: rotate(180deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 #represent{
-    display: none;
+  display: none;
 }
 
 #represent2{
-    display: none;
+  display: none;
 }
 
 #represent3{
-    display: none;
+  display: none;
 }
 
 #represent4{
-    display: none;
+  display: none;
 }
 
 .H1{
-    position: absolute;
-    color: grey;
-    bottom: 14vh;
-    font-size: calc(2.7vmin);
-    width:60vw;
-    left:0;
-
+  position: absolute;
+  color: grey;
+  bottom: 14vh;
+  font-size: calc(2.7vmin);
+  width:60vw;
+  left:0;
 }
 
 .bodyright{
-    background: #b8ac92;
-    position: absolute;
-    left:60vw;
-    top:0;
-    height: 80vh;
-    width:40vw;
-    align-items: baseline;
-}
-
-.bodybottomleft{
-    background:  #524948;
-    position: absolute;
-    top:80vh;
-    height: 10vh;
-    width:100vw;
-    justify-content: center;
+  background: #b8ac92;
+  height: 80vh;
+  width:40vw;
 }

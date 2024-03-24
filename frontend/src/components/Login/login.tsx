@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import EyeC from '../../assets/eye-slash.svg?react';
 import Eye from '../../assets/eye.svg?react';
 
-import './Login.css'
+import './login.css'
 import loginService from '../../services/loginService'
 import Notification from './notifications'
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import EyeC from '../../assets/eye-slash.svg?react';
 import Eye from '../../assets/eye.svg?react';
-import './Login.css'
+import './login.css'
 import sign_up from '../../services/signUpService.tsx'
 import Notification from './notifications.tsx'
 
